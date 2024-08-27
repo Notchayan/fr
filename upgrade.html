@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upgrade Miner</title>
+</head>
+<body>
+    <h1>Upgrade Miner to Level {{ level }}</h1>
+    <p>Cost: {{ cost }} ETH</p>
+    <p>Send this amount from your connected wallet to the following address: 0x17876697Eb54332AfBe0BB1f9C59E5A3e5b7A1C6</p>
+
+    <form action="/process_upgrade" method="POST">
+        <input type="hidden" name="level" value="{{ level }}">
+        <label for="tx_hash">Transaction Hash:</label>
+        <input type="text" id="tx_hash" name="tx_hash" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
