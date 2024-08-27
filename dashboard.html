@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Ethereum Mining Dashboard</h1>
+    <p>Your Balance: {{ balance }} ETH</p>
+    <p>Your Hashrate: {{ hashrate }} GH/s</p>
+
+    <form action="/mine" method="POST">
+        <button type="submit">Start Mining</button>
+    </form>
+
+    <form action="/upgrade" method="POST">
+        <label for="level">Upgrade Miner:</label>
+        <select name="level" id="level">
+            <option value="2">Level 2 (2x speed)</option>
+            <option value="3">Level 3 (3x speed)</option>
+            <option value="4">Level 4 (4x speed)</option>
+        </select>
+        <button type="submit">Upgrade</button>
+    </form>
+</body>
+</html>
