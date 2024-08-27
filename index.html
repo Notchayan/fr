@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ethereum Mining WebApp</title>
+</head>
+<body>
+    <h1>Welcome to Ethereum Mining WebApp</h1>
+    <button onclick="connectMetaMask()">Connect MetaMask Wallet</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script>
+        async function connectMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                const wallet_address = accounts[0];
+                fetch('/connect_wallet', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `wallet_address=${wallet_address}`
+                }).then(response => {
+                    window.location.href = '/dashboard';
+                });
+            } else {
+                alert('MetaMask is not installed!');
+            }
+        }
+    </script>
+</body>
+</html>
